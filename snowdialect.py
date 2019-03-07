@@ -20,11 +20,12 @@ from .base import (
     SnowflakeDDLCompiler, SnowflakeCompiler, SnowflakeExecutionContext, SnowflakeIdentifierPreparer,
     SnowflakeTypeCompiler
 )
-from ..connector.constants import UTF8
+
 from .custom_types import (
     TIMESTAMP_LTZ, TIMESTAMP_TZ, TIMESTAMP_NTZ, VARIANT, OBJECT, ARRAY
 )
-from ..connector import errors as sf_errors
+
+UTF8 = u'utf-8'
 
 colspecs = {}
 
@@ -183,7 +184,7 @@ class SnowflakeDialect(default.DefaultDialect):
             have = row is not None
             return have
         except sa_exc.DBAPIError as e:
-            if e.orig.__class__ == sf_errors.ProgrammingError:
+            if e.orig.__class__.__name__ == 'ProgrammingError':
                 return False
             raise
 

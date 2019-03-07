@@ -5,13 +5,15 @@
 #
 
 from sqlalchemy import exc
-
-from ..connector.compat import (PY2, IS_STR)
+from six import PY2, string_types
 
 if PY2:
     from urllib import quote_plus
 else:
     from urllib.parse import quote_plus
+
+
+IS_STR = lambda v: isinstance(v, string_types)
 
 
 def _url(**db_parameters):

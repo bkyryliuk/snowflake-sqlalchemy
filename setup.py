@@ -20,7 +20,7 @@ with open(path.join(THIS_DIR, 'DESCRIPTION.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='snowflake-sqlalchemy',
+    name='snowflake-sqlalchemy-fork',
     version=version,
     description='Snowflake SQLAlchemy Dialect',
     long_description = long_description,
@@ -36,21 +36,18 @@ setup(
         'sqlalchemy<2.0.0',
         'snowflake-connector-python<2.0.0',
     ],
-    namespace_packages=[
-        'snowflake'
-    ],
     packages=[
-        'snowflake.sqlalchemy',
+        'snowflake_sqlalchemy',
     ],
     package_dir={
-        'snowflake.sqlalchemy': '.',
+        'snowflake_sqlalchemy': '.',
     },
     package_data={
-        'snowflake.sqlalchemy': ['LICENSE.txt'],
+        'snowflake_sqlalchemy': ['LICENSE.txt'],
     },
     entry_points={
         'sqlalchemy.dialects': [
-            'snowflake=snowflake.sqlalchemy:dialect',
+            'snowflake=snowflake_sqlalchemy:dialect',
         ]
     },
     classifiers = [
