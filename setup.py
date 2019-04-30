@@ -34,7 +34,7 @@ setup(
 
     install_requires = [
         'sqlalchemy<2.0.0',
-        'snowflake-connector-python<2.0.0',
+        'snowflake-connector-python-no-azure<2.0.0',
     ],
     packages=[
         'snowflake_sqlalchemy',
@@ -65,9 +65,7 @@ setup(
 
         'Operating System :: OS Independent',
 
-        'Programming Language :: SQL',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.4',
+        'Programming Language :: SQL',        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
